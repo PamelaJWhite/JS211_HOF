@@ -1,64 +1,86 @@
+// console.log(`I'm working`)
+// //find
+// //findIndex
+// //forEach
+// //filter
 
-//find
-//findIndex
-//forEach
-//filter
 
-// let newArray = []
-// //returns an array with new elements where the new elements are derived by applying the
-// // callback to elements of the original array  WHAT IS THIS FOR??
 
-console.log(`I'm working`)
-
-////forEach()
-// let array = [1, 2, 3]
-// let callback = () => {
-//     console.log(`did this wwork?`)
-// }
-
+////(1.) forEach()
+    //DATA for forEach()
+let numbers = [1, 2, 3]
+let forEachFunc = () => {
+    console.log(`did this wwork?`)
+}
+    //Scratch
 let forEachScratch = function (array, callback) {
     for (let i=0; i< array.length; i++) {
         callback()
     }
 }
-// forEachScratch(array, callback)
+let resultsForEachScratch = forEachScratch(numbers, forEachFunc)
+console.log(`Results of forEachScratch: ${resultsForEachScratch}`)
 
-////filter()
+    //Comparison for forEach
+let resultsForEach = numbers.forEach(forEachFunc)
+console.log(`Results of forEach : ${resultsForEach}`)
+
+
+
+// //DATA for the remaining functions
 let array = [1, 2, 3, 2, 5, 6, 2]
 let callback = (element) => {
-    if (element==2) {
+    if (element>3) {
         return true
     }
 }
 
+
+
+// ////(2.) filter()
 let filterScratch = function(array, callback) {
-    //write a plain old for loop
-    //that will use the callback to return only the elements
-    //that meet the criteria
-    // console.log(`filter scratch is working`)
     let newArray = []
     for (let i=0; i<array.length; i++) {
         if (callback(array[i])) {
-            // console.log(i)
             newArray.push(array[i])
-            // console.log(`new array: ${newArray}`)
+            console.log(`new array: ${newArray}`)
         }
     }
+    return newArray
 }
-// filterScratch(array, callback)
+let resultsFilterScratch = filterScratch(array, callback)
+console.log(`Results filter scratch: ${resultsFilterScratch}`)
+let resultsFilter = array.filter(callback)
+console.log(`Results filter: ${resultsFilter}`)
+
 
 let findScratch = function(array, callback) {
     //returns the first element in the array that meets the criteria
     for (let i=0; i<array.length; i++) {
         if (callback(array[i])) {
-            console.log(i)
-            return i
+            return array[i]
         }
     }
 }
-findScratch(array, callback)
+console.log(`Results of findScratch: ${findScratch(array, callback)}`)
+console.log(`Results of find(): ${array.find(callback)}`)
 
 
+//findIndex
+let findIndexScratch = function(array,callback) {
+    //returns the index of the first element in the array to meet the criteria
+        for (let i=0; i<array.length; i++) {
+            if (callback(array[i])) {
+                return i
+            }
+        }
+}
+console.log(`Results of findIndexScratch: ${findIndexScratch(array, callback)}`)
+console.log(`Results of findIndex: ${array.findIndex(callback)}`)
+
+
+
+//mapScratch
 let mapScratch = function(array, callback) {
     for(let i = 0; i< array.length; i++){
         let element = array[i];
@@ -72,3 +94,9 @@ let mapScratch = function(array, callback) {
 // let doubles = mapScratch(numbers, function(element){
 //     return element +2;
 // })
+
+
+
+
+
+
